@@ -1,0 +1,37 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.vin.WareHouse;
+
+service Inventory{
+  rpc addItem(AddItemRequest) returns(stream StatusResponse);
+  rpc deleteItem(DeleteItemRequest) returns(stream StatusResponse);
+  rpc listItems(stream ItemsRequest) returns(stream ItemsList);
+}
+
+message AddItemRequest{
+  Item item=1;
+}
+message ItemsRequest{
+
+}
+
+message ItemsList{
+  repeated Item items=1;
+}
+
+message Item{
+  int32 itemQuantity=1;
+  double itemPrice=2;
+  string itemName=3;
+  optional int64 itemId=4;
+}
+
+message StatusResponse{
+  bool success=1;
+  string message=2;
+}
+
+message DeleteItemRequest{
+  int64 itemId=1;
+}
+

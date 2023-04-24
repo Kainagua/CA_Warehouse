@@ -1,0 +1,26 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.vin.WareHouse;
+import "inventory.proto";
+
+service Orders{
+  rpc postOrder(PostOrderRequest) returns (StatusResponse);
+  rpc getOrders(GetOrdersRequest) returns (stream OrderList);
+  rpc cancelOrders(CancelOrderRequest) returns(StatusResponse);
+}
+message CancelOrderRequest{
+int64 orderId=1;
+}
+message GetOrdersRequest{
+
+}
+message OrderList{
+  repeated PostOrderRequest orderItems=1;
+}
+message PostOrderRequest{
+  optional int64 orderId=1;
+  repeated Item orderItems=2;
+  string orderStatus=3;
+}
+
+

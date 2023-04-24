@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WareHouse System</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/iconfonts/bootstrapicons/bootstrap-icons.css}">
+  <link rel="stylesheet" th:href="@{/iconfonts/font-awesome/css/font-awesome.css}">
+</head>
+<body>
+<!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a
+                href="/"
+                class="list-group-item list-group-item-action py-2 ripple"
+                aria-current="true"
+        >
+          <i class="bi bi-bar-chart-fill me-3"></i><span>Main dashboard</span>
+        </a>
+        <a href="inventory" class="list-group-item list-group-item-action py-2 ripple active">
+          <i class="bi bi-card-checklist me-3"></i><span>Inventory Manager</span>
+        </a>
+        <a href="orders" class="list-group-item list-group-item-action py-2 ripple"
+        ><i class="bi bi-layers  me-3"></i><span>Orders</span></a
+        >
+        <a href="deliveries" class="list-group-item list-group-item-action py-2 ripple"
+        ><i class="fas bi-bag-check  me-3"></i><span>Deliveries</span></a
+        >
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+              class="navbar-toggler"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#sidebarMenu"
+              aria-controls="sidebarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+      >
+        <i class="bi bi-menu-button-fill"></i>
+      </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">
+       <i class="bi bi-house-fill"/>
+      </a>
+      <!-- Search form -->
+      <!-- Right links -->
+
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px;">
+  <div class="container pt-4">
+    <div class="row d-flex justify-content-around">
+      <div class="col-md-6">
+<table class="m-2 table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">
+      #
+    </th>
+    <th scope="col">
+      Item
+    </th>
+    <th scope="col">
+     Quantity
+    </th>
+    <th scope="col">
+      Unit Cost
+    </th>
+    <th scope="col">
+      Action
+    </th>
+  </tr>
+  </thead>
+  <tbody id="items">
+
+  </tbody>
+</table>
+      </div>
+      <div class="col-md-4">
+        <h4 class="h4">Add A New Item</h4>
+        <div class="mb-4">
+          <label class="form-label" for="itemName">Item Name</label>
+          <input class="form-control" type="text" id="itemName">
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="itemQuantity">Item Quantity</label>
+          <input class="form-control" type="number" id="itemQuantity">
+        </div>
+        <div class="mb-4">
+          <label class="form-label" for="itemPrice">Item Price</label>
+          <input class="form-control" type="number" id="itemPrice">
+        </div>
+        <div class="text-end">
+          <button class="btn btn-success" type="button" onclick="saveItem()">Save Item</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!--Main layout-->
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/events.js}"></script>
+<script th:src="@{/js/inventory.js}">
+
+</script>
+</body>
+</html>
